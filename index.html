@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Fiche Kinésithérapie détaillée — Hernie discale lombaire | EFR</title>
+<meta name="description" content="Protocole détaillé rééducation post-discectomie lombaire - exercices, progressions, variantes"/>
+<link rel="canonical" href="https://raphaeljameson-png.github.io/fiche_kine_hernie_detaillee/" />
+
+<style>
+  :root {
+    --ink:#111;
+    --muted:#444;
+    --accent:#0b6fa4;
+    --accent2:#22b8b8;
+    --bg:#fff;
+    --border:#d9d9d9;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #f3f5f7;
+    color: var(--ink);
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,Helvetica,sans-serif;
+    line-height: 1.35;
+  }
+  .toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: rgba(255,255,255,.92);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(6px);
+  }
+  .toolbar-inner {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 10px 16px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .toolbar .btn {
+    appearance: none;
+    border: 1px solid var(--border);
+    background: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--ink);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .toolbar .btn.primary {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: #fff;
+  }
+  .wrap {
+    max-width: 980px;
+    margin: 22px auto;
+    padding: 0 16px 28px;
+  }
+  .page {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 26px 34px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.06);
+  }
+  header.top {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 16px;
+    align-items: center;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--accent);
+  }
+  header.top img {
+    width: 110px;
+    height: auto;
+  }
+  .brand .brand-name {
+    margin: 0;
+    font-size: 18px;
+    letter-spacing: .2px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  .brand .line {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 2px;
+  }
+  .doc-title {
+    margin-top: 18px;
+    border-left: 6px solid var(--accent2);
+    padding-left: 14px;
+  }
+  .doc-title h1 {
+    margin: 0;
+    font-size: 22px;
+  }
+  .doc-title .meta {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+  h2.chapter-title {
+    margin: 22px 0 8px;
+    font-size: 16px;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+  h3.section-title {
+    margin: 14px 0 6px;
+    font-size: 14px;
+    color: var(--ink);
+  }
+  h4 {
+    margin: 12px 0 6px;
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .phase-box {
+    background: #f8fcff;
+    border-left: 6px solid var(--accent2);
+    padding: 20px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+  }
+  .phase-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .phase-number {
+    background: var(--accent);
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 15px;
+  }
+  .warning-box {
+    border-left-color: #d93025 !important;
+    background: #fff9f8 !important;
+  }
+  .objectifs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .objectif-item {
+    background: #e6f3ff;
+    padding: 12px;
+    border-radius: 6px;
+    border-left: 4px solid var(--accent);
+  }
+  .exercise-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 12px 0;
+  }
+  .exercise-item {
+    background: #f0f8ff;
+    padding: 12px;
+    border-radius: 6px;
+    border-left: 3px solid var(--accent2);
+    font-size: 13px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 12px;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 6px 8px;
+    vertical-align: top;
+  }
+  th {
+    background: #f6f8fa;
+    text-align: left;
+  }
+  .note {
+    border: 1px solid var(--border);
+    border-left: 6px solid var(--accent2);
+    padding: 12px 14px;
+    border-radius: 8px;
+    background: #fbfeff;
+    margin: 16px 0;
+  }
+  .hr {
+    margin: 24px 0;
+    height: 1px;
+    background: var(--border);
+    border: 0;
+  }
+  footer {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 12px;
+  }
+  @media print {
+    body { background: white; }
+    .toolbar { display: none; }
+    .wrap { margin: 0; padding: 0; }
+    .page {
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      padding: 14mm 14mm;
+    }
+    a { color: inherit; text-decoration: none; }
+    .no-print, .no-print * { display: none !important; }
+    @page { size: A4 landscape; margin: 10mm; }
+  }
+  @media (max-width: 768px) {
+    .exercise-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="toolbar no-print">
+  <div class="toolbar-inner">
+    <a href="https://raphaeljameson-png.github.io/accueil_fiches_informatives_EFR/" class="btn">
+      <span>←</span> Accueil
+    </a>
+    <div style="font-weight:700; text-align: center; flex: 1;">Fiche Kiné DÉTAILLÉE Hernie discale</div>
+    <button class="btn primary" onclick="window.print()">Imprimer / PDF</button>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="page">
+    <header class="top">
+      <img alt="Logo Espace Francilien du Rachis" src="logo.png"/>
+      <div class="brand">
+        <div class="brand-name">ESPACE FRANCILIEN DU RACHIS</div>
+        <div class="line">95, rue de Prony — 75017 Paris | www.rachis.paris</div>
+        <div class="line">Dr Raphaël Jameson · Dr Mayalen Lamerain · Dr Christophe Travert</div>
+      </div>
+    </header>
+    
+    <div class="doc-title">
+      <h1>FICHE KINÉSITHÉRAPIE DÉTAILLÉE — Hernie discale lombaire opérée</h1>
+      <div class="meta">
+        <div><strong>Protocole post-discectomie lombaire | 15–25 séances</strong></div>
+        <div><strong>Version technique kinésithérapeutes</strong></div>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>Objectifs :</strong> Antalgie • Mobilisation précoce • Gainage transverse/multifide • Chaîne postérieure • 
+      Proprioception • Reprise fonctionnelle • Éducation posturale • Prévention récidive (90% dans 6 mois si mal rééduqué)
+    </div>
+
+    <h2 class="chapter-title">PROTOCOLE PROGRESSIF PAR PHASES</h2>
+
+    <div class="phase-box">
+      <div class="phase-header">
+        <div class="phase-number">1</div>
+        <h3 class="section-title">PHASE 1 : J+1 à J+15 (Semaines 1–2) | 2×/sem</h3>
+      </div>
+      <strong>Objectif :</strong> Protection cicatricielle + antalgie + marche + gainage transverse isométrique
+      <div class="exercise-grid">
+        <div class="exercise-item">
+          <h4>🧘‍♂️ <strong>GAINAGE TRANSVERSE</strong></h4>
+          <ul style="font-size: 12px; margin: 4px 0;">
+            <li>Décubitus dorsal • Respiration diaphragmatique</li>
+            <li>Contraction transverse (ventre → nombril) 3×10-15s</li>
+            <li>Progression : 3×20s • ajouter appui genou → planche genoux</li>
+          </ul>
+        </div>
+        <div class="exercise-item">
+          <h4>🍑 <strong>PONT FESSIER ISO</strong></h4>
+          <ul style="font-size: 12px; margin: 4px 0;">
+            <li>Dorsal • genoux 90° • pieds largeur bassin</li>
+            <li>Levée bassin 3×10s isométrique (pas d'hyper-extension)</li>
+            <li>Progression : 1 jambe tendue 3×8s/côté</li>
+          </ul>
+        </div>
+        <div class="exercise-item">
+          <h4>🚶 <strong>MARCHE + POSTURES</strong></h4>
+          <ul style="font-size: 12px; margin: 4px 0;">
+            <li>10→30min fractionnée (anti-rétroversion)</li>
+            <li>Lever chaise : avant→genoux→bassin→dos</li>
+            <li>Semelles amorties 1-2cm obligatoires</li>
+          </ul>
+        </div>
+        <div class="exercise-item">
+          <h4>⚡ <strong>ANTALGIE</strong></h4>
+          <ul style="font-size: 12px; margin: 4px 0;">
+            <li>Massage cicatriciel J+7 (si non douloureux)</li>
+            <li>TENS 20min/j • Chaleur locale 15min</li>
+            <li>Étirement psoas passif : 3×20s (non radiculaire)</li>
+          </ul>
+        </div>
+      </div>
+      <div style="font-weight: bold; color: #d93025; margin-top: 12px; font-size: 13px;">
+        ⛔ <strong>INTERDITS :</strong> Flexion lombaire • Rotation tronc • Charges >5kg • Hyperextension
+      </div>
+    </div>
+
+    <div class="note" style="margin: 24px 0;">
+      <strong>📋 ÉDUC POSTURALE (Phase 1 obligatoire) :</strong><br>
+      <strong>Lever chaise :</strong> avant→genoux→bassin→dos | <strong>Port charge :</strong> genoux fléchis, dos droit | 
+      <strong>Conduite :</strong> coussin lombaire 4 semaines | <strong>Chaussures :</strong> semelles amorties 1-2cm
+    </div>
+
+    <div class="phase-box">
+      <div class="phase-header">
+        <div class="phase-number">2</div>
+        <h3 class="section-title">PHASE 2 : Semaines 3–6 | 2×/sem (8-12 séances)</h3>
+      </div>
+      <strong>Objectif :</strong> Gainage dynamique + Chaîne postérieure + Équilibre fonctionnel
+      <div class="exercise-grid">
+        <div class="exercise-item">
+          <h4>🏄 <strong>PLANCHES PROGRESSIVES</strong></h4>
+          <table style="width: 100%; font-size: 11px;">
+            <tr><th>Semaine</th><th>Exercice</th><th>Répétitions</th></tr>
+            <tr><td>3</td><td>Planche genoux</td><td>3×20-30s</td></tr>
+            <tr><td>4</td><td>Planche latérale (genou appui)</td><td>3×15s/côté</td></tr>
+            <tr><td>5-6</td><td>Dead bug alterné (jambes fléchies)</td><td>3×12</td></tr>
+          </table>
+        </div>
+        <div class="exercise-item">
+          <h4>💪 <strong>CHAÎNE POSTÉRIEURE</strong></h4>
+          <ul style="font-size: 12px; margin: 4px 0;">
+            <li><strong>Fessiers :</strong> Pont 1 jambe 3×12/côté</li>
+            <li><strong>Ischios :</strong> Curl assis 3×12 (machine ou élastique)</li>
+            <li><strong>Lombaires :</strong> Extension dos sol 3×15 (sans hyper-ext.)</li>
+          </ul>
+        </div>
+        <div class="exercise-item">
+          <h4>⚽ <strong>FONCTIONNEL + ÉQUILIBRE</strong></h4>
+          <ul style="font-size: 12px; margin: 4px 0;">
+            <li>Marche rapide 45→60min</li>
+            <li>Squat guidé mur 3×12 (&lt;45°)</li>
+            <li>Équilibre unipodal 3×30s (yeux ouverts)</li>
+          </ul>
+        </div>
+        <div class="exercise-item">
+          <h4>🧘 <strong>ÉTIREMENTS</strong></h4>
+          <ul style="font-size: 12px; margin: 4px 0;">
+            <li>Psoas : 3×30s/côté (genou au sol)</li>
+            <li>Carrés lombes : 3×30s/côté</li>
+            <li>Ischios : 3×30s/côté (dos droit)</li>
+          </ul>
+        </div>
+      </div>
+      <div style="font-weight: bold; color: #d93025; margin-top: 12px; font-size: 13px;">
+        ⛔ <strong>INTERDITS :</strong> Charges >10kg • Sport impact • Flexions répétées • Valises
+      </div>
+    </div>
+
+    <div class="phase-box">
+      <div class="phase-header">
+        <div class="phase-number">3</div>
+        <h3 class="section-title">PHASE 3 : Semaines 6–12 | 1×/sem (6-8 séances)</h3>
+      </div>
+      <strong>Objectif :</strong> Gainage avancé + Fonctionnel + Proprioception + Reprise sport
+      <div class="exercise-grid">
+        <div class="exercise-item">
+          <h4>🔥 <strong>GAINAGE AVANCÉ</strong></h4>
+          <ul style="font-size: 12px; margin: 4px 0;">
+            <li>Planche complète 3×45s→1min</li>
+            <li>Mountain climbers 3×20-30</li>
+            <li>Gainage TRX suspendu 3×30s</li>
+            <li>Planche dynamique (rotation) 3×20</li>
+          </ul>
+        </div>
+        <div class="exercise-item">
+          <h4>🏋️ <strong>FONCTIONNEL LOURD</strong></h4>
+          <ul style="font-size: 12px; margin: 4px 0;">
+            <li>Squat complet &lt;90° 3×15 (haltères 2-5kg)</li>
+            <li>Soulevé terre roumain 3×12 (barre vide→10kg)</li>
+            <li>Pont fessier 1 jambe lesté 3×15/côté</li>
+          </ul>
+        </div>
+        <div class="exercise-item">
+          <h4>🎯 <strong>PROPRIOCEPTION</strong></h4>
+          <ul style="font-size: 12px; margin: 4px 0;">
+            <li>Bosu équilibre + gainage 3×45s</li>
+            <li>Fentes contrôlées 3×12/côté</li>
+            <li>Unipodal yeux fermés 3×20s/côté</li>
+            <li>Plateau instable + médecine ball 3×30s</li>
+          </ul>
+        </div>
+        <div class="exercise-item">
+          <h4>🏃 <strong>REPRISE SPORT</strong></h4>
+          <table style="width: 100%; font-size: 11px;">
+            <tr><th>Semaine</th><th>Activité</th></tr>
+            <tr><td>6-8</td><td>Vélo plat • Natation crawl/dos</td></tr>
+            <tr><td>8-10</td><td>Marche rapide • Vélo route</td></tr>
+            <tr><td>10-12</td><td>Course légère • Golf • Tennis</td></tr>
+            <tr><td>12+</td><td>Contact (accord chirurgien)</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="chapter-title">CRITÈRES DE SORTIE RÉÉDUC (J+12)</h2>
+    <div class="objectifs-grid">
+      <div class="objectif-item">☑ <strong>Douleur :</strong> VAS <3/10 • Radiculaire absente</div>
+      <div class="objectif-item">☑ <strong>Gainage :</strong> Planche complète 60s sans compensation</div>
+      <div class="objectif-item">☑ <strong>Mobilité :</strong> Schober +20cm • SLR >70° sans douleur</div>
+      <div class="objectif-item">☑ <strong>Fonction :</strong> Squat 90° 3×15 • Marche 60min sans douleur</div>
+    </div>
+
+    <h2 class="chapter-title">SIGNES D'ALERTE → CHIRURGIEN URGENCE</h2>
+    <div class="note warning-box">
+      <table>
+        <tr><th style="width: 50%;">Signe</th><th>Action</th></tr>
+        <tr><td><strong>Fièvre + cicatrice rouge</strong></td><td>Urgences infection</td></tr>
+        <tr><td><strong>Déficit moteur nouveau</strong></td><td>Chirurgien J0</td></tr>
+        <tr><td><strong>Douleur radiculaire↑</strong></td><td>Consultation 48h</td></tr>
+        <tr><td><strong>Troubles sphinctériens</strong></td><td><strong>URGENCE ABSOLUE</strong></td></tr>
+      </table>
+    </div>
+
+    <div class="hr"></div>
+
+    <footer>
+      <div><strong>Dr Raphaël Jameson</strong> — dr.jameson@rachis.paris — 95 rue de Prony 75017 Paris</div>
+      <div><strong>www.rachis.paris</strong> | <em>Protocole EFR 2026 — SFCR guidelines</em></div>
+    </footer>
+  </div>
+</div>
+
+</body>
+</html>
