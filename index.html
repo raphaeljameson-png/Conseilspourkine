@@ -24,266 +24,170 @@
     line-height: 1.3;
   }
   
-  /* ÉCRAN */
+  /* Toolbar écran */
   .toolbar {
-    position: sticky;
-    top: 0;
-    z-index: 5;
-    background: rgba(255,255,255,.92);
-    border-bottom: 1px solid var(--border);
-    backdrop-filter: blur(6px);
-    padding: 10px 16px;
+    position: sticky; top: 0; z-index: 5;
+    background: rgba(255,255,255,.92); border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(6px); padding: 10px 16px;
   }
   .toolbar-inner {
-    max-width: 980px;
-    margin: 0 auto;
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    max-width: 980px; margin: 0 auto;
+    display: flex; gap: 10px; align-items: center;
+    justify-content: space-between; flex-wrap: wrap;
   }
   .toolbar .btn {
-    border: 1px solid var(--border);
-    background: white;
-    padding: 8px 12px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-    text-decoration: none;
-    color: var(--ink);
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
+    border: 1px solid var(--border); background: white;
+    padding: 8px 12px; border-radius: 8px; cursor: pointer;
+    font-weight: 600; text-decoration: none; color: var(--ink);
+    display: inline-flex; align-items: center; gap: 5px;
   }
-  .toolbar .btn.primary {
-    border-color: var(--accent);
-    background: var(--accent);
-    color: #fff;
-  }
-  .wrap {
-    max-width: 980px;
-    margin: 22px auto;
-    padding: 0 16px 28px;
-  }
-  .page {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 26px 34px;
-    box-shadow: 0 8px 24px rgba(0,0,0,.06);
-  }
+  .toolbar .btn.primary { border-color: var(--accent); background: var(--accent); color: #fff; }
   
-  /* IMPRESSION A4 RECTO-VERSO OPTIMISÉE */
-  @page {
-    size: A4 portrait;
-    margin: 8mm 10mm;
+  /* Écran normal */
+  .wrap { max-width: 980px; margin: 22px auto; padding: 0 16px 28px; }
+  .page { 
+    background: var(--bg); border: 1px solid var(--border); border-radius: 10px;
+    padding: 26px 34px; box-shadow: 0 8px 24px rgba(0,0,0,.06);
+  }
+  header.top {
+    display: grid; grid-template-columns: 110px 1fr; gap: 16px;
+    align-items: center; padding-bottom: 14px; border-bottom: 2px solid var(--accent);
+  }
+  header.top img { width: 110px; height: auto; }
+  .brand .brand-name { margin: 0; font-size: 18px; letter-spacing: .2px; text-transform: uppercase; font-weight: bold; }
+  .brand .line { color: var(--muted); font-size: 13px; margin-top: 2px; }
+  .doc-title { margin-top: 18px; border-left: 6px solid var(--accent2); padding-left: 14px; }
+  .doc-title h1 { margin: 0; font-size: 22px; }
+  .doc-title .meta { margin-top: 6px; color: var(--muted); font-size: 13px; }
+  
+  /* IMPRESSION A4 RECTO-VERSO - MARGES AUGMENTÉES */
+  @page { 
+    size: A4 portrait; 
+    margin: 12mm 15mm 12mm 15mm; /* Marges plus généreuses */
   }
   
   @media print {
-    body { 
-      background: white !important; 
-      font-size: 10px;
-      line-height: 1.25;
-      margin: 0;
-      padding: 0;
-    }
-    .toolbar, .no-print { 
-      display: none !important; 
-    }
-    .wrap { 
-      margin: 0 !important; 
-      padding: 0 !important;
-      max-width: none !important;
-    }
+    * { font-size: 10px !important; line-height: 1.25 !important; }
+    body { background: white !important; margin: 0 !important; padding: 0 !important; }
+    
+    /* Suppressions */
+    .toolbar, .no-print { display: none !important; }
+    .wrap { margin: 0 !important; padding: 0 !important; max-width: none !important; }
+    
+    /* Page principale */
     .page {
-      border: none !important;
-      border-radius: 0 !important;
-      box-shadow: none !important;
-      padding: 0 !important;
-      margin: 0 !important;
-      page-break-after: always;
-      background: white !important;
-      font-size: 9.5px;
+      border: none !important; border-radius: 0 !important; box-shadow: none !important;
+      padding: 0 !important; margin: 0 !important; background: white !important;
+      page-break-after: always; /* Force verso */
+      max-width: 190mm; margin: 0 auto; /* Centre + limite largeur */
     }
-    .page:last-child {
-      page-break-after: avoid;
+    .page:last-child { page-break-after: avoid; }
+    
+    /* Typographie compacte */
+    h1 { font-size: 16px !important; margin: 6px 0 4px 0 !important; line-height: 1.2 !important; }
+    h2.chapter-title { 
+      font-size: 13px !important; margin: 12px 0 6px 0 !important; 
+      padding-bottom: 2px; border-bottom: 1px solid #eee;
+    }
+    h3.section-title { font-size: 12px !important; margin: 8px 0 4px 0 !important; }
+    h4 { font-size: 11px !important; margin: 6px 0 3px 0 !important; }
+    
+    p, li { margin: 1px 0 !important; padding: 0 2px !important; }
+    ul { margin: 4px 0 4px 10px !important; padding: 0 !important; }
+    table { 
+      font-size: 9px !important; margin: 4px 0 !important; width: 100% !important; 
+      table-layout: fixed;
+    }
+    th, td { 
+      padding: 2px 3px !important; border: 1px solid #ddd !important; 
+      font-size: 9px !important; vertical-align: top;
     }
     
-    /* Compact */
-    h1 { font-size: 18px !important; margin: 8px 0 4px 0 !important; }
-    h2 { font-size: 14px !important; margin: 12px 0 6px 0 !important; }
-    h3 { font-size: 12px !important; margin: 10px 0 4px 0 !important; }
-    h4 { font-size: 11px !important; margin: 6px 0 2px 0 !important; }
-    
-    p, li { margin: 2px 0 !important; padding: 0 !important; }
-    ul { margin: 4px 0 4px 12px !important; padding: 0 !important; }
-    table { font-size: 9px !important; margin: 4px 0 !important; }
-    th, td { padding: 3px 4px !important; font-size: 9px !important; }
-    
+    /* Compactage boîtes */
     .phase-box {
-      margin: 8px 0 !important;
-      padding: 10px !important;
-      border-left-width: 4px !important;
+      margin: 8px 0 !important; padding: 10px 8px !important; 
+      border-left: 3px solid var(--accent2) !important;
     }
-    .exercise-grid {
-      grid-template-columns: 1fr !important;
-      gap: 6px !important;
+    .phase-header { margin-bottom: 8px !important; gap: 6px !important; }
+    .phase-number { 
+      width: 28px !important; height: 28px !important; 
+      font-size: 12px !important; line-height: 1 !important;
+    }
+    
+    .exercise-grid { 
+      grid-template-columns: 1fr !important; gap: 6px !important; 
     }
     .exercise-item {
-      padding: 8px !important;
-      margin: 0 !important;
+      padding: 6px 8px !important; margin: 0 !important; 
+      border-left: 2px solid var(--accent2) !important;
       font-size: 9.5px !important;
     }
-    .objectifs-grid {
-      grid-template-columns: 1fr !important;
-      gap: 4px !important;
+    
+    .objectifs-grid { 
+      grid-template-columns: 1fr !important; gap: 4px !important; 
     }
-    .note {
-      margin: 8px 0 !important;
-      padding: 8px !important;
-      border-left-width: 4px !important;
+    .objectif-item {
+      padding: 6px 8px !important; margin: 2px 0 !important;
+      font-size: 10px !important;
     }
     
-    header.top {
-      margin-bottom: 12px !important;
-      padding-bottom: 8px !important;
+    .note {
+      margin: 6px 0 !important; padding: 6px 8px !important;
+      border-left: 3px solid var(--accent2) !important;
+      font-size: 9.5px !important;
     }
-    .doc-title h1 {
-      font-size: 16px !important;
-      margin: 4px 0 !important;
+    
+    /* Header compact */
+    header.top {
+      margin-bottom: 8px !important; padding-bottom: 6px !important;
+      gap: 8px !important; font-size: 11px !important;
+    }
+    header.top img { width: 80px !important; }
+    
+    /* Footer */
+    footer { 
+      margin-top: 12px !important; padding-top: 8px !important; 
+      font-size: 9px !important; border-top: 1px solid #eee !important;
     }
   }
   
-  /* ÉCRAN NORMAL */
-  header.top {
-    display: grid;
-    grid-template-columns: 110px 1fr;
-    gap: 16px;
-    align-items: center;
-    padding-bottom: 14px;
-    border-bottom: 2px solid var(--accent);
-    margin-bottom: 20px;
-  }
-  header.top img { width: 110px; height: auto; }
-  .brand .brand-name {
-    margin: 0;
-    font-size: 18px;
-    letter-spacing: .2px;
-    text-transform: uppercase;
-    font-weight: bold;
-  }
-  .brand .line { color: var(--muted); font-size: 13px; margin-top: 2px; }
-  .doc-title {
-    margin-top: 18px;
-    border-left: 6px solid var(--accent2);
-    padding-left: 14px;
-  }
-  .doc-title h1 { margin: 0; font-size: 22px; }
-  .doc-title .meta { margin-top: 6px; color: var(--muted); font-size: 13px; }
-  h2.chapter-title {
-    margin: 22px 0 8px;
-    font-size: 16px;
-    color: var(--accent);
-    text-transform: uppercase;
-  }
+  /* Écran - styles normaux */
+  h2.chapter-title { margin: 22px 0 8px; font-size: 16px; color: var(--accent); text-transform: uppercase; }
   h3.section-title { margin: 14px 0 6px; font-size: 14px; color: var(--ink); }
   h4 { margin: 12px 0 6px; font-size: 13px; color: var(--accent); font-weight: 600; }
   
-  .phase-box {
-    background: #f8fcff;
-    border-left: 6px solid var(--accent2);
-    padding: 20px;
-    margin: 16px 0;
-    border-radius: 0 8px 8px 0;
+  .phase-box { 
+    background: #f8fcff; border-left: 6px solid var(--accent2); 
+    padding: 20px; margin: 16px 0; border-radius: 0 8px 8px 0;
   }
-  .phase-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 16px;
-  }
+  .phase-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
   .phase-number {
-    background: var(--accent);
-    color: white;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 15px;
+    background: var(--accent); color: white; width: 36px; height: 36px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 15px;
   }
   .warning-box { border-left-color: #d93025 !important; background: #fff9f8 !important; }
-  .objectifs-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 12px;
-    margin: 16px 0;
-  }
-  .objectif-item {
-    background: #e6f3ff;
-    padding: 12px;
-    border-radius: 6px;
-    border-left: 4px solid var(--accent);
-  }
-  .exercise-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 12px;
-    margin: 12px 0;
-  }
-  .exercise-item {
-    background: #f0f8ff;
-    padding: 12px;
-    border-radius: 6px;
-    border-left: 3px solid var(--accent2);
-    font-size: 13px;
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 12px 0;
-    font-size: 12px;
-  }
-  th, td {
-    border: 1px solid var(--border);
-    padding: 6px 8px;
-    vertical-align: top;
-  }
+  .objectifs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; margin: 16px 0; }
+  .objectif-item { background: #e6f3ff; padding: 12px; border-radius: 6px; border-left: 4px solid var(--accent); }
+  .exercise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; margin: 12px 0; }
+  .exercise-item { background: #f0f8ff; padding: 12px; border-radius: 6px; border-left: 3px solid var(--accent2); font-size: 13px; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 12px; }
+  th, td { border: 1px solid var(--border); padding: 6px 8px; vertical-align: top; }
   th { background: #f6f8fa; text-align: left; }
-  .note {
-    border: 1px solid var(--border);
-    border-left: 6px solid var(--accent2);
-    padding: 12px 14px;
-    border-radius: 8px;
-    background: #fbfeff;
-    margin: 16px 0;
-  }
-  .hr { margin: 24px 0; height: 1px; background: var(--border); border: 0; }
-  footer {
-    margin-top: 24px;
-    padding-top: 16px;
-    border-top: 1px solid var(--border);
-    color: var(--muted);
-    font-size: 12px;
-  }
+  .note { border: 1px solid var(--border); border-left: 6px solid var(--accent2); padding: 12px 14px; border-radius: 8px; background: #fbfeff; margin: 16px 0; }
 </style>
 </head>
 <body>
 
 <div class="toolbar no-print">
   <div class="toolbar-inner">
-    <a href="https://raphaeljameson-png.github.io/accueil_fiches_informatives_EFR/" class="btn">
-      <span>←</span> Accueil
-    </a>
+    <a href="https://raphaeljameson-png.github.io/accueil_fiches_informatives_EFR/" class="btn">← Accueil</a>
     <div style="font-weight:700; text-align: center; flex: 1;">Fiche Kiné DÉTAILLÉE Hernie discale</div>
     <button class="btn primary" onclick="window.print()">Imprimer A4 R/V</button>
   </div>
 </div>
 
 <div class="wrap">
+  <!-- PAGE 1 : Header + Phase 1 + Éduc posturale -->
   <div class="page">
     <header class="top">
       <img alt="Logo Espace Francilien du Rachis" src="logo.png"/>
@@ -303,8 +207,7 @@
     </div>
 
     <div class="note">
-      <strong>Objectifs :</strong> Antalgie • Mobilisation • Gainage transverse • Chaîne postérieure • 
-      Proprioception • Reprise fonctionnelle • Éducation posturale • Prévention récidive
+      <strong>Objectifs :</strong> Antalgie • Mobilisation • Gainage transverse • Chaîne postérieure • Proprioception • Reprise fonctionnelle
     </div>
 
     <h2 class="chapter-title">PHASE 1 : J+1 à J+15 (2×/sem)</h2>
@@ -345,17 +248,17 @@
           </ul>
         </div>
       </div>
-      <div style="color: #d93025; font-weight: bold;">
+      <div style="color: #d93025; font-weight: bold; margin-top: 8px;">
         ⛔ Flexion • Rotation • Charges >5kg
       </div>
     </div>
 
     <div class="note">
-      <strong>📋 ÉDUC POSTURALE :</strong> Lever chaise • Port charge genoux fléchis • 
-      Coussin lombaire conduite 4 sem.
+      <strong>📋 ÉDUC POSTURALE :</strong> Lever chaise • Port charge genoux fléchis • Coussin lombaire conduite 4 sem.
     </div>
   </div>
 
+  <!-- PAGE 2 : Phases 2-3 + Critères + Alertes -->
   <div class="page">
     <h2 class="chapter-title">PHASE 2 : Semaines 3–6 (2×/sem)</h2>
     <div class="phase-box">
@@ -390,7 +293,7 @@
           </ul>
         </div>
       </div>
-      <div style="color: #d93025; font-weight: bold;">
+      <div style="color: #d93025; font-weight: bold; margin-top: 8px;">
         ⛔ Charges >10kg • Sport impact
       </div>
     </div>
@@ -443,8 +346,8 @@
     </div>
     
     <div class="note warning-box">
-      <table style="font-size: 11px;">
-        <tr><th>Signe</th><th>Action</th></tr>
+      <table>
+        <tr><th style="width:50%">Signe</th><th>Action</th></tr>
         <tr><td>Fièvre+cicatrice</td><td>Urgences</td></tr>
         <tr><td>Déficit moteur</td><td>Chirurgien J0</td></tr>
         <tr><td>Troubles sphinct.</td><td><strong>URGENCE ABSOLUE</strong></td></tr>
