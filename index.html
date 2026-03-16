@@ -5,7 +5,6 @@
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>Fiche Kinésithérapie détaillée — Hernie discale lombaire | EFR</title>
 <meta name="description" content="Protocole détaillé rééducation post-discectomie lombaire - exercices, progressions, variantes"/>
-<link rel="canonical" href="https://raphaeljameson-png.github.io/fiche_kine_hernie_detaillee/" />
 
 <style>
   :root {
@@ -22,8 +21,10 @@
     background: #f3f5f7;
     color: var(--ink);
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,Helvetica,sans-serif;
-    line-height: 1.35;
+    line-height: 1.3;
   }
+  
+  /* ÉCRAN */
   .toolbar {
     position: sticky;
     top: 0;
@@ -31,11 +32,11 @@
     background: rgba(255,255,255,.92);
     border-bottom: 1px solid var(--border);
     backdrop-filter: blur(6px);
+    padding: 10px 16px;
   }
   .toolbar-inner {
     max-width: 980px;
     margin: 0 auto;
-    padding: 10px 16px;
     display: flex;
     gap: 10px;
     align-items: center;
@@ -43,7 +44,6 @@
     flex-wrap: wrap;
   }
   .toolbar .btn {
-    appearance: none;
     border: 1px solid var(--border);
     background: white;
     padding: 8px 12px;
@@ -73,6 +73,89 @@
     padding: 26px 34px;
     box-shadow: 0 8px 24px rgba(0,0,0,.06);
   }
+  
+  /* IMPRESSION A4 RECTO-VERSO OPTIMISÉE */
+  @page {
+    size: A4 portrait;
+    margin: 8mm 10mm;
+  }
+  
+  @media print {
+    body { 
+      background: white !important; 
+      font-size: 10px;
+      line-height: 1.25;
+      margin: 0;
+      padding: 0;
+    }
+    .toolbar, .no-print { 
+      display: none !important; 
+    }
+    .wrap { 
+      margin: 0 !important; 
+      padding: 0 !important;
+      max-width: none !important;
+    }
+    .page {
+      border: none !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      page-break-after: always;
+      background: white !important;
+      font-size: 9.5px;
+    }
+    .page:last-child {
+      page-break-after: avoid;
+    }
+    
+    /* Compact */
+    h1 { font-size: 18px !important; margin: 8px 0 4px 0 !important; }
+    h2 { font-size: 14px !important; margin: 12px 0 6px 0 !important; }
+    h3 { font-size: 12px !important; margin: 10px 0 4px 0 !important; }
+    h4 { font-size: 11px !important; margin: 6px 0 2px 0 !important; }
+    
+    p, li { margin: 2px 0 !important; padding: 0 !important; }
+    ul { margin: 4px 0 4px 12px !important; padding: 0 !important; }
+    table { font-size: 9px !important; margin: 4px 0 !important; }
+    th, td { padding: 3px 4px !important; font-size: 9px !important; }
+    
+    .phase-box {
+      margin: 8px 0 !important;
+      padding: 10px !important;
+      border-left-width: 4px !important;
+    }
+    .exercise-grid {
+      grid-template-columns: 1fr !important;
+      gap: 6px !important;
+    }
+    .exercise-item {
+      padding: 8px !important;
+      margin: 0 !important;
+      font-size: 9.5px !important;
+    }
+    .objectifs-grid {
+      grid-template-columns: 1fr !important;
+      gap: 4px !important;
+    }
+    .note {
+      margin: 8px 0 !important;
+      padding: 8px !important;
+      border-left-width: 4px !important;
+    }
+    
+    header.top {
+      margin-bottom: 12px !important;
+      padding-bottom: 8px !important;
+    }
+    .doc-title h1 {
+      font-size: 16px !important;
+      margin: 4px 0 !important;
+    }
+  }
+  
+  /* ÉCRAN NORMAL */
   header.top {
     display: grid;
     grid-template-columns: 110px 1fr;
@@ -80,11 +163,9 @@
     align-items: center;
     padding-bottom: 14px;
     border-bottom: 2px solid var(--accent);
+    margin-bottom: 20px;
   }
-  header.top img {
-    width: 110px;
-    height: auto;
-  }
+  header.top img { width: 110px; height: auto; }
   .brand .brand-name {
     margin: 0;
     font-size: 18px;
@@ -92,42 +173,23 @@
     text-transform: uppercase;
     font-weight: bold;
   }
-  .brand .line {
-    color: var(--muted);
-    font-size: 13px;
-    margin-top: 2px;
-  }
+  .brand .line { color: var(--muted); font-size: 13px; margin-top: 2px; }
   .doc-title {
     margin-top: 18px;
     border-left: 6px solid var(--accent2);
     padding-left: 14px;
   }
-  .doc-title h1 {
-    margin: 0;
-    font-size: 22px;
-  }
-  .doc-title .meta {
-    margin-top: 6px;
-    color: var(--muted);
-    font-size: 13px;
-  }
+  .doc-title h1 { margin: 0; font-size: 22px; }
+  .doc-title .meta { margin-top: 6px; color: var(--muted); font-size: 13px; }
   h2.chapter-title {
     margin: 22px 0 8px;
     font-size: 16px;
     color: var(--accent);
     text-transform: uppercase;
   }
-  h3.section-title {
-    margin: 14px 0 6px;
-    font-size: 14px;
-    color: var(--ink);
-  }
-  h4 {
-    margin: 12px 0 6px;
-    font-size: 13px;
-    color: var(--accent);
-    font-weight: 600;
-  }
+  h3.section-title { margin: 14px 0 6px; font-size: 14px; color: var(--ink); }
+  h4 { margin: 12px 0 6px; font-size: 13px; color: var(--accent); font-weight: 600; }
+  
   .phase-box {
     background: #f8fcff;
     border-left: 6px solid var(--accent2);
@@ -153,10 +215,7 @@
     font-weight: bold;
     font-size: 15px;
   }
-  .warning-box {
-    border-left-color: #d93025 !important;
-    background: #fff9f8 !important;
-  }
+  .warning-box { border-left-color: #d93025 !important; background: #fff9f8 !important; }
   .objectifs-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -171,7 +230,7 @@
   }
   .exercise-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 12px;
     margin: 12px 0;
   }
@@ -193,10 +252,7 @@
     padding: 6px 8px;
     vertical-align: top;
   }
-  th {
-    background: #f6f8fa;
-    text-align: left;
-  }
+  th { background: #f6f8fa; text-align: left; }
   .note {
     border: 1px solid var(--border);
     border-left: 6px solid var(--accent2);
@@ -205,35 +261,13 @@
     background: #fbfeff;
     margin: 16px 0;
   }
-  .hr {
-    margin: 24px 0;
-    height: 1px;
-    background: var(--border);
-    border: 0;
-  }
+  .hr { margin: 24px 0; height: 1px; background: var(--border); border: 0; }
   footer {
     margin-top: 24px;
     padding-top: 16px;
     border-top: 1px solid var(--border);
     color: var(--muted);
     font-size: 12px;
-  }
-  @media print {
-    body { background: white; }
-    .toolbar { display: none; }
-    .wrap { margin: 0; padding: 0; }
-    .page {
-      border: none;
-      border-radius: 0;
-      box-shadow: none;
-      padding: 14mm 14mm;
-    }
-    a { color: inherit; text-decoration: none; }
-    .no-print, .no-print * { display: none !important; }
-    @page { size: A4 landscape; margin: 10mm; }
-  }
-  @media (max-width: 768px) {
-    .exercise-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -245,7 +279,7 @@
       <span>←</span> Accueil
     </a>
     <div style="font-weight:700; text-align: center; flex: 1;">Fiche Kiné DÉTAILLÉE Hernie discale</div>
-    <button class="btn primary" onclick="window.print()">Imprimer / PDF</button>
+    <button class="btn primary" onclick="window.print()">Imprimer A4 R/V</button>
   </div>
 </div>
 
@@ -261,187 +295,166 @@
     </header>
     
     <div class="doc-title">
-      <h1>FICHE KINÉSITHÉRAPIE DÉTAILLÉE — Hernie discale lombaire opérée</h1>
+      <h1>FICHE KINÉSITHÉRAPIE DÉTAILLÉE — Hernie discale lombaire</h1>
       <div class="meta">
-        <div><strong>Protocole post-discectomie lombaire | 15–25 séances</strong></div>
+        <div><strong>Protocole post-discectomie | 15–25 séances</strong></div>
         <div><strong>Version technique kinésithérapeutes</strong></div>
       </div>
     </div>
 
     <div class="note">
-      <strong>Objectifs :</strong> Antalgie • Mobilisation précoce • Gainage transverse/multifide • Chaîne postérieure • 
-      Proprioception • Reprise fonctionnelle • Éducation posturale • Prévention récidive (90% dans 6 mois si mal rééduqué)
+      <strong>Objectifs :</strong> Antalgie • Mobilisation • Gainage transverse • Chaîne postérieure • 
+      Proprioception • Reprise fonctionnelle • Éducation posturale • Prévention récidive
     </div>
 
-    <h2 class="chapter-title">PROTOCOLE PROGRESSIF PAR PHASES</h2>
-
+    <h2 class="chapter-title">PHASE 1 : J+1 à J+15 (2×/sem)</h2>
     <div class="phase-box">
       <div class="phase-header">
         <div class="phase-number">1</div>
-        <h3 class="section-title">PHASE 1 : J+1 à J+15 (Semaines 1–2) | 2×/sem</h3>
+        <h3>Protection cicatricielle + antalgie + marche</h3>
       </div>
-      <strong>Objectif :</strong> Protection cicatricielle + antalgie + marche + gainage transverse isométrique
       <div class="exercise-grid">
         <div class="exercise-item">
-          <h4>🧘‍♂️ <strong>GAINAGE TRANSVERSE</strong></h4>
-          <ul style="font-size: 12px; margin: 4px 0;">
-            <li>Décubitus dorsal • Respiration diaphragmatique</li>
-            <li>Contraction transverse (ventre → nombril) 3×10-15s</li>
-            <li>Progression : 3×20s • ajouter appui genou → planche genoux</li>
+          <h4>🧘‍♂️ GAINAGE TRANSVERSE</h4>
+          <ul>
+            <li>Décubitus • Respiration diaphragmatique</li>
+            <li>Contraction transverse 3×10-20s</li>
+            <li>Progression : planche genoux 3×20s</li>
           </ul>
         </div>
         <div class="exercise-item">
-          <h4>🍑 <strong>PONT FESSIER ISO</strong></h4>
-          <ul style="font-size: 12px; margin: 4px 0;">
-            <li>Dorsal • genoux 90° • pieds largeur bassin</li>
-            <li>Levée bassin 3×10s isométrique (pas d'hyper-extension)</li>
-            <li>Progression : 1 jambe tendue 3×8s/côté</li>
+          <h4>🍑 PONT FESSIER</h4>
+          <ul>
+            <li>Genoux 90° • Levée bassin 3×10s</li>
+            <li>Progression : 1 jambe 3×8s/côté</li>
           </ul>
         </div>
         <div class="exercise-item">
-          <h4>🚶 <strong>MARCHE + POSTURES</strong></h4>
-          <ul style="font-size: 12px; margin: 4px 0;">
-            <li>10→30min fractionnée (anti-rétroversion)</li>
-            <li>Lever chaise : avant→genoux→bassin→dos</li>
-            <li>Semelles amorties 1-2cm obligatoires</li>
+          <h4>🚶 MARCHE + POSTURES</h4>
+          <ul>
+            <li>10→30min fractionnée</li>
+            <li>Lever chaise : avant→genoux→dos</li>
+            <li>Semelles amorties 1-2cm</li>
           </ul>
         </div>
         <div class="exercise-item">
-          <h4>⚡ <strong>ANTALGIE</strong></h4>
-          <ul style="font-size: 12px; margin: 4px 0;">
-            <li>Massage cicatriciel J+7 (si non douloureux)</li>
-            <li>TENS 20min/j • Chaleur locale 15min</li>
-            <li>Étirement psoas passif : 3×20s (non radiculaire)</li>
+          <h4>⚡ ANTALGIE</h4>
+          <ul>
+            <li>Massage cicatriciel J+7</li>
+            <li>TENS 20min • Chaleur 15min</li>
           </ul>
         </div>
       </div>
-      <div style="font-weight: bold; color: #d93025; margin-top: 12px; font-size: 13px;">
-        ⛔ <strong>INTERDITS :</strong> Flexion lombaire • Rotation tronc • Charges >5kg • Hyperextension
+      <div style="color: #d93025; font-weight: bold;">
+        ⛔ Flexion • Rotation • Charges >5kg
       </div>
     </div>
 
-    <div class="note" style="margin: 24px 0;">
-      <strong>📋 ÉDUC POSTURALE (Phase 1 obligatoire) :</strong><br>
-      <strong>Lever chaise :</strong> avant→genoux→bassin→dos | <strong>Port charge :</strong> genoux fléchis, dos droit | 
-      <strong>Conduite :</strong> coussin lombaire 4 semaines | <strong>Chaussures :</strong> semelles amorties 1-2cm
+    <div class="note">
+      <strong>📋 ÉDUC POSTURALE :</strong> Lever chaise • Port charge genoux fléchis • 
+      Coussin lombaire conduite 4 sem.
     </div>
+  </div>
 
+  <div class="page">
+    <h2 class="chapter-title">PHASE 2 : Semaines 3–6 (2×/sem)</h2>
     <div class="phase-box">
       <div class="phase-header">
         <div class="phase-number">2</div>
-        <h3 class="section-title">PHASE 2 : Semaines 3–6 | 2×/sem (8-12 séances)</h3>
+        <h3>Gainage dynamique + Chaîne postérieure</h3>
       </div>
-      <strong>Objectif :</strong> Gainage dynamique + Chaîne postérieure + Équilibre fonctionnel
       <div class="exercise-grid">
         <div class="exercise-item">
-          <h4>🏄 <strong>PLANCHES PROGRESSIVES</strong></h4>
-          <table style="width: 100%; font-size: 11px;">
-            <tr><th>Semaine</th><th>Exercice</th><th>Répétitions</th></tr>
-            <tr><td>3</td><td>Planche genoux</td><td>3×20-30s</td></tr>
-            <tr><td>4</td><td>Planche latérale (genou appui)</td><td>3×15s/côté</td></tr>
-            <tr><td>5-6</td><td>Dead bug alterné (jambes fléchies)</td><td>3×12</td></tr>
+          <h4>🏄 PLANCHES</h4>
+          <table>
+            <tr><th>Sem</th><th>Exercice</th><th>Rép</th></tr>
+            <tr><td>3</td><td>Planche genoux</td><td>3×25s</td></tr>
+            <tr><td>4</td><td>Planche latérale</td><td>3×15s</td></tr>
+            <tr><td>5-6</td><td>Dead bug</td><td>3×12</td></tr>
           </table>
         </div>
         <div class="exercise-item">
-          <h4>💪 <strong>CHAÎNE POSTÉRIEURE</strong></h4>
-          <ul style="font-size: 12px; margin: 4px 0;">
-            <li><strong>Fessiers :</strong> Pont 1 jambe 3×12/côté</li>
-            <li><strong>Ischios :</strong> Curl assis 3×12 (machine ou élastique)</li>
-            <li><strong>Lombaires :</strong> Extension dos sol 3×15 (sans hyper-ext.)</li>
+          <h4>💪 CHAÎNE POSTÉRIEURE</h4>
+          <ul>
+            <li>Fessiers 1 jambe 3×12</li>
+            <li>Ischios curl 3×12</li>
+            <li>Extension lombaire 3×15</li>
           </ul>
         </div>
         <div class="exercise-item">
-          <h4>⚽ <strong>FONCTIONNEL + ÉQUILIBRE</strong></h4>
-          <ul style="font-size: 12px; margin: 4px 0;">
-            <li>Marche rapide 45→60min</li>
-            <li>Squat guidé mur 3×12 (&lt;45°)</li>
-            <li>Équilibre unipodal 3×30s (yeux ouverts)</li>
-          </ul>
-        </div>
-        <div class="exercise-item">
-          <h4>🧘 <strong>ÉTIREMENTS</strong></h4>
-          <ul style="font-size: 12px; margin: 4px 0;">
-            <li>Psoas : 3×30s/côté (genou au sol)</li>
-            <li>Carrés lombes : 3×30s/côté</li>
-            <li>Ischios : 3×30s/côté (dos droit)</li>
+          <h4>⚽ FONCTIONNEL</h4>
+          <ul>
+            <li>Marche rapide 45-60min</li>
+            <li>Squat guidé 3×12</li>
+            <li>Équilibre unipodal 30s</li>
           </ul>
         </div>
       </div>
-      <div style="font-weight: bold; color: #d93025; margin-top: 12px; font-size: 13px;">
-        ⛔ <strong>INTERDITS :</strong> Charges >10kg • Sport impact • Flexions répétées • Valises
+      <div style="color: #d93025; font-weight: bold;">
+        ⛔ Charges >10kg • Sport impact
       </div>
     </div>
 
+    <h2 class="chapter-title">PHASE 3 : Semaines 6–12 (1×/sem)</h2>
     <div class="phase-box">
       <div class="phase-header">
         <div class="phase-number">3</div>
-        <h3 class="section-title">PHASE 3 : Semaines 6–12 | 1×/sem (6-8 séances)</h3>
+        <h3>Gainage avancé + Proprioception + Sport</h3>
       </div>
-      <strong>Objectif :</strong> Gainage avancé + Fonctionnel + Proprioception + Reprise sport
       <div class="exercise-grid">
         <div class="exercise-item">
-          <h4>🔥 <strong>GAINAGE AVANCÉ</strong></h4>
-          <ul style="font-size: 12px; margin: 4px 0;">
-            <li>Planche complète 3×45s→1min</li>
-            <li>Mountain climbers 3×20-30</li>
-            <li>Gainage TRX suspendu 3×30s</li>
-            <li>Planche dynamique (rotation) 3×20</li>
+          <h4>🔥 GAINAGE AVANCÉ</h4>
+          <ul>
+            <li>Planche 3×60s</li>
+            <li>Mountain climbers 3×25</li>
+            <li>TRX 3×30s</li>
           </ul>
         </div>
         <div class="exercise-item">
-          <h4>🏋️ <strong>FONCTIONNEL LOURD</strong></h4>
-          <ul style="font-size: 12px; margin: 4px 0;">
-            <li>Squat complet &lt;90° 3×15 (haltères 2-5kg)</li>
-            <li>Soulevé terre roumain 3×12 (barre vide→10kg)</li>
-            <li>Pont fessier 1 jambe lesté 3×15/côté</li>
+          <h4>🏋️ FONCTIONNEL</h4>
+          <ul>
+            <li>Squat 90° 3×15</li>
+            <li>Soulevé terre 3×12</li>
           </ul>
         </div>
         <div class="exercise-item">
-          <h4>🎯 <strong>PROPRIOCEPTION</strong></h4>
-          <ul style="font-size: 12px; margin: 4px 0;">
-            <li>Bosu équilibre + gainage 3×45s</li>
-            <li>Fentes contrôlées 3×12/côté</li>
-            <li>Unipodal yeux fermés 3×20s/côté</li>
-            <li>Plateau instable + médecine ball 3×30s</li>
+          <h4>🎯 PROPRIOCEPTION</h4>
+          <ul>
+            <li>Bosu 3×45s</li>
+            <li>Fentes 3×12</li>
+            <li>Yeux fermés 20s</li>
           </ul>
         </div>
         <div class="exercise-item">
-          <h4>🏃 <strong>REPRISE SPORT</strong></h4>
-          <table style="width: 100%; font-size: 11px;">
-            <tr><th>Semaine</th><th>Activité</th></tr>
-            <tr><td>6-8</td><td>Vélo plat • Natation crawl/dos</td></tr>
-            <tr><td>8-10</td><td>Marche rapide • Vélo route</td></tr>
-            <tr><td>10-12</td><td>Course légère • Golf • Tennis</td></tr>
-            <tr><td>12+</td><td>Contact (accord chirurgien)</td></tr>
-          </table>
+          <h4>🏃 SPORT</h4>
+          <ul>
+            <li>S6 : Vélo/natation</li>
+            <li>S10 : Course légère</li>
+            <li>S12+ : Contact</li>
+          </ul>
         </div>
       </div>
     </div>
 
-    <h2 class="chapter-title">CRITÈRES DE SORTIE RÉÉDUC (J+12)</h2>
+    <h2 class="chapter-title">CRITÈRES SORTIE + ALERTES</h2>
     <div class="objectifs-grid">
-      <div class="objectif-item">☑ <strong>Douleur :</strong> VAS <3/10 • Radiculaire absente</div>
-      <div class="objectif-item">☑ <strong>Gainage :</strong> Planche complète 60s sans compensation</div>
-      <div class="objectif-item">☑ <strong>Mobilité :</strong> Schober +20cm • SLR >70° sans douleur</div>
-      <div class="objectif-item">☑ <strong>Fonction :</strong> Squat 90° 3×15 • Marche 60min sans douleur</div>
+      <div class="objectif-item">☑ VAS <3/10 • Planche 60s • Schober +20cm</div>
+      <div class="objectif-item">☑ SLR >70° • Squat 3×15 • Marche 60min</div>
     </div>
-
-    <h2 class="chapter-title">SIGNES D'ALERTE → CHIRURGIEN URGENCE</h2>
+    
     <div class="note warning-box">
-      <table>
-        <tr><th style="width: 50%;">Signe</th><th>Action</th></tr>
-        <tr><td><strong>Fièvre + cicatrice rouge</strong></td><td>Urgences infection</td></tr>
-        <tr><td><strong>Déficit moteur nouveau</strong></td><td>Chirurgien J0</td></tr>
-        <tr><td><strong>Douleur radiculaire↑</strong></td><td>Consultation 48h</td></tr>
-        <tr><td><strong>Troubles sphinctériens</strong></td><td><strong>URGENCE ABSOLUE</strong></td></tr>
+      <table style="font-size: 11px;">
+        <tr><th>Signe</th><th>Action</th></tr>
+        <tr><td>Fièvre+cicatrice</td><td>Urgences</td></tr>
+        <tr><td>Déficit moteur</td><td>Chirurgien J0</td></tr>
+        <tr><td>Troubles sphinct.</td><td><strong>URGENCE ABSOLUE</strong></td></tr>
       </table>
     </div>
 
-    <div class="hr"></div>
-
     <footer>
-      <div><strong>Dr Raphaël Jameson</strong> — dr.jameson@rachis.paris — 95 rue de Prony 75017 Paris</div>
-      <div><strong>www.rachis.paris</strong> | <em>Protocole EFR 2026 — SFCR guidelines</em></div>
+      <div><strong>Dr Raphaël Jameson</strong> — dr.jameson@rachis.paris</div>
+      <div>95 rue de Prony 75017 Paris | www.rachis.paris</div>
+      <div><em>Protocole EFR 2026</em></div>
     </footer>
   </div>
 </div>
